@@ -8,7 +8,6 @@ const Table = () => {
 
     const [Apidata, setApiData] = useState([])
 
-    const [data, setData] = useState([])
 
     useEffect(() => {
         setApiData(records)
