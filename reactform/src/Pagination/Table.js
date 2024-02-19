@@ -4,7 +4,7 @@ import "../style/table.css";
 
 const Table = () => {
 
-    const [checkData, setCheckdata] = useState([])
+    // const [checkData, setCheckdata] = useState([])
 
     const [Apidata, setApiData] = useState([])
 
