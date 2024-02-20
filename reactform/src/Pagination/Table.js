@@ -8,7 +8,14 @@ const Table = () => {
 
 
     const [Apidata, setApiData] = useState([])
-    // console.log("Apidata", Apidata);
+
+
+    useEffect(() => {
+        setApiData(records)
+    }, [])
+
+    console.log("Apidata", Apidata);
+
 
     const [currentPage, setCurrentPage] = useState(1)
     const recordPerPage = 5; // Number of records per page
