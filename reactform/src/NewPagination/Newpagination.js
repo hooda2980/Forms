@@ -16,7 +16,7 @@ const Newpagination = () => {
     const npage = Math.ceil(tableData.length / itemShow)
     const numbers = [...Array(npage + 1).keys()].slice(1);
 
-             
+
     const preHandler = () => {
         if (showPage !== 1) {
             setShowPage(showPage - 1)
@@ -35,20 +35,19 @@ const Newpagination = () => {
 
     useEffect(() => {
         setChexkbox(record)
-    },[])
+    }, [])
     const checkBoxHandler = (aa, e) => {
-        const {name, checked }= e.target.value
-        const template = record.map((item)=>item.name === name ? {...item, isChecked: checked}:item )
-        setChexkbox(template)
-        const bbbb = template.filter((chk)=> chk.checkdata === aa )
+        const { name, checked } = e.target.value
+        const template = record.map((item) => item.name === name ? { ...item, isChecked: checked } : item)
+        setChexkbox(template) 
+        const bbbb = template.filter((chk) => chk.checkdata === aa)
         console.log("bbbbbbbbbbbbbbbb", bbbb);
-
     }
 
 
     return (
         <>
-            <h1 className='text-center m-4 text-danger'>New Table Pages </h1>
+            <h1 className='text-center m-4 text-dang`er'>New Table Pages </h1>
             <div>
                 <table>
                     <thead>
@@ -71,7 +70,7 @@ const Newpagination = () => {
                                         <td>
 
                                             <div className="d-flex align-items-center gap-3">
-                                                <input type="checkbox" onChange={(e)=>checkBoxHandler(Td.checkdata,e)} name={Td.checkdata}   />
+                                                <input type="checkbox" onChange={(e) => checkBoxHandler(Td.checkdata, e)} name={Td.checkdata} />
                                                 {Td.checkdata}
                                             </div>
 
