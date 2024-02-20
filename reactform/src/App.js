@@ -5,6 +5,7 @@ import SignUpForm from './forms/SignUpForm';
 import Items from './Pagination/Table';
 import DemoPagination from './Pagination/DemoPagination';
 import ClickSlider from './ImagerSelectSlider/ClickSlider';
+import Newpagination from './NewPagination/Newpagination';
 
 
 import {
@@ -31,6 +32,7 @@ function App() {
       <RouterProvider router={router} />
       <DemoPagination/>
       <ClickSlider/>
+      <Newpagination/>
     </>
 
   );

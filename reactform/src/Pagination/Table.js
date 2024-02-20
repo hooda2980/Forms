@@ -6,15 +6,9 @@ const Table = () => {
 
     // const [checkData, setCheckdata] = useState([])
 
+
     const [Apidata, setApiData] = useState([])
-
-
-    useEffect(() => {
-        setApiData(records)
-    }, [])
-
-    console.log("Apidata", Apidata);
-
+    // console.log("Apidata", Apidata);
 
     const [currentPage, setCurrentPage] = useState(1)
     const recordPerPage = 5; // Number of records per page
@@ -24,30 +18,37 @@ const Table = () => {
     const Newpage = Math.ceil(tableData.length / recordPerPage)
     const numbers = [...Array(Newpage + 1).keys()].slice(1)
 
+    useEffect(() => {
+        setApiData(records)
+    }, [])
 
+    
     const prePage = () => {
         if (currentPage !== 1) {
-            setCurrentPage(currentPage - 1)
+            setCurrentPage(currentPage - 1)  
+            setApiData(records)
         }
     }
 
     const nextPage = () => {
         if (currentPage !== Newpage) {
             setCurrentPage(currentPage + 1)
+            setApiData(records)
         }
+       
+       
     }
 
     const changePageNum = (n) => {
         setCurrentPage(n);
-
     }
 
 
     const handleChange = (e) => {
         const { name, checked } = e.target
-        
+
         if (name === "allSelect") {
-            let template = Apidata.map((item) => { return { ...item, isChecked: checked }; })
+            let template = Apidata.map((item) => {return { ...item, isChecked: checked } })
             setApiData(template)
         } else {
             let template = Apidata.map((item) => item.checkdata === name ? { ...item, isChecked: checked } : item)
@@ -79,15 +80,15 @@ const Table = () => {
                                                 {item.checkdata} </div>
                                         </th>
                                         <td>{item.id} </td>
-                                        <td> {item.name}</td>
+                                        <td>{item.name}</td>
                                         <td>{item.gmail}</td>
                                     </tr>
-
                                 )
                             })
                         }
                     </tbody>
                 </table>
+
                 <nav className='d-flex justify-content-center mt-4 '>
                     <ul className="pagination">
                         <li className="page-item"><a className="page-link" href="#" onClick={prePage}>Previous</a></li>
@@ -96,7 +97,6 @@ const Table = () => {
                                 return (
                                     <li className={`page-item ${currentPage === n ? 'active' : ''}`} key={i}><a className="page-link" href="#" onClick={() => changePageNum(n)}> {n} </a></li>
                                 )
-
                             })
                         }
                         <li className="page-item"><a className={`page-link ${currentPage === Newpage ? 'next' : ""}`} href="#" onClick={nextPage}>Next</a></li>

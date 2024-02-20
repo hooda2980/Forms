@@ -22,3 +22,12 @@ tr:nth-child(even) {
 .next{
   display: none!important;
 }
+
+.mainBox_slider{
+  border:5px solid whitesmoke;
+  padding:10px
+}
+
+.active {
+  background-color: red !important;
+}
